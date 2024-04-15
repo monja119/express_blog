@@ -1,4 +1,8 @@
-run the command on the terminal: 
+- monja n° 16 (monja@esti.mg)
+- Anicet randrianambinina n° (anicet.randrianambinina@esti.mg)
+
+
+Executer les commandes suivantes pour lancer le projet 
 ```scripts
     npm install
     npm run seed
