@@ -1,0 +1,112 @@
+/* root */
+:root{
+    --first-color: #0d72d8;
+    --first-color-light: #4dabf7;
+    --first-color-dark: #0b5b9e;
+    --first-color-accent: #ff8f00;
+
+}
+
+body{
+    background-color: #f4f4f4;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.text-first-color-accent{
+    color: var(--first-color-accent);
+}
+.img-logo{
+    width: 55px;
+    height: 55px;
+    display: block;
+}
+.bg-first-color{
+    background-color: var(--first-color);
+}
+
+.bg-first-dark{
+    background-color: var(--first-color-dark);
+}
+
+.hover-scale:hover{
+    transform: scale(1.1);
+}
+
+.hover-accent:hover{
+    color: var(--first-color-accent);
+}
+
+.hover-none {
+    transform: none;
+}
+
+.border-first-color{
+    border-color: var(--first-color);
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.ml-1{
+    margin-left: 1rem;
+}
+.ml-2{
+    margin-left: 2rem;
+}
+.ml-3{
+    margin-left: 3rem;
+}
+.ml-4{
+    margin-left: 4rem;
+}
+.ml-5{
+    margin-left: 5rem;
+}
+
+.mr-1{
+    margin-right: 1rem;
+}
+
+.mr-2{
+    margin-right: 2rem;
+}
+.mr-3{
+    margin-right: 3rem;
+}
+.mr-4{
+    margin-right: 4rem;
+}
+.mr-5{
+    margin-right: 5rem;
+}
+
+.logo-facture{
+    width: 100px;
+    height: 100px;
+}
+#base-header{
+    background-color: var(--first-color);
+    color: #fff;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.validate-btn{
+    width: 80px;
+}
+#bars-element-content {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    margin-right: 0.5px;
+}

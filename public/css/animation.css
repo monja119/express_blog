@@ -1,0 +1,6 @@
+
+/* transition-fade-5s */
+
+.transition-fade-5s {
+  transition: all 5s ease;
+}

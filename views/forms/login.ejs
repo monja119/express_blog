@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="login-box col-xl-6 col-lg-6 col-md-10 col-sm-11 p-2">
+            <div class="card border-0 shadow">
+                <div class="card-body login-card-body">
+                    <form action="/login" method="post" class="px-3">
+                        <p class="login-box-msg my-3 mb-4">Connectez-vous pour commencer votre session</p>
+                        <% if (error) { %><p class="alert alert-danger"><%-error %></p><% } %>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Identifiant" name="identifiant">
+                            <div class="input-group-append">
+                                <div class="input-group-text h-100">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password">
+                            <div class="input-group-append">
+                                <div class="input-group-text h-100">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block h-100 w-100">Se Connecter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

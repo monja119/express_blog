@@ -1,0 +1,120 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%-title %></title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row mt-1">
+            <button
+                class="btn btn-danger col-12"
+                onclick="window.location.href='/logout'"
+            >
+                Déconnexion
+            </button>
+        </div>
+        <div class="row mt-3">
+            <button class="btn btn-secondary col-4">
+                <%- user.login %>
+            </button>
+        </div>
+        <div class="row mt-3">
+            <button class="btn btn-success btn-sm col-1 ml-1"
+                onclick="window.location.href='/articles'"
+            >
+                <i class="fa fa-plus"></i>
+                Ajouter un article
+            </button>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Contenu</th>
+                            <th>Date</th>
+                            <th>Lire</th>
+                            <th>Modifier</th>
+                            <th>Suprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% articles.forEach(article => { %>
+                            <tr class="small">
+                                <td><%- article.title %></td>
+                                <td><%-article.content.slice(0, 100) + '...' %></td>
+                                <td>
+                                    <%-
+                                        'Le ' + article.date.slice(8, 10) + '/' + article.date.slice(5, 7) + '/' + article.date.slice(0, 4) +
+                                        ' à ' + article.date.slice(11, 13) + 'h' + article.date.slice(14, 16) + 'min' + article.date.slice(17, 19) + 's'
+                                    %></td>
+                                <td>
+                                    <button
+                                            class="btn btn-primary btn-sm"
+                                            onclick="window.location.href='/articles/<%- article.id %>'"
+                                        >
+                                        <i class="fa fa-eye"></i> Lire L'article
+                                    </button>
+                                </td>
+                                <td>
+                                    <% if (article.author_id === user.id) {%>
+                                        <button class="btn btn-warning btn-sm edit"
+                                                onclick="window.location.href='/articles/edit/<%- article.id %>'"
+                                                value="<%- article.id %>"
+                                        >
+                                            <i class="fa fa-edit"></i> Modifier
+                                        </button>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% if (article.author_id === user.id) {%>
+                                        <button
+                                                class="btn btn-danger btn-sm delete"
+                                                value="<%- article.id %>"
+                                        >
+                                            <i class="fa fa-trash"></i> Suprimer
+                                        </button>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let delete_btns = document.querySelectorAll('.delete');
+
+    delete_btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (confirm('Voulez-vous vraiment suprimer cet article ?')) {
+                let id = btn.getAttribute('value');
+                const url = '/articles/' + btn.value;
+                fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    window.location.href = '/home';
+                })
+                .catch((error) => console.error('Error:', error));
+            }
+        });
+    });
+</script>
+</body>
+</html>
