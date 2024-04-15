@@ -1,5 +1,5 @@
 - monja n° 16 (monja@esti.mg)
-- Anicet randrianambinina n° (anicet.randrianambinina@esti.mg)
+- Anicet randrianambinina n° 30 (anicet.randrianambinina@esti.mg)
 
 
 Executer les commandes suivantes pour lancer le projet 
